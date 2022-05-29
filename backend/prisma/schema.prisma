@@ -1,0 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Permition{
+  id            Int         @id @default(autoincrement())
+  seeOwnOffers  Boolean
+  requestOffers Boolean
+  scanDevices   Boolean
+  manageOffers  Boolean
+  manageDevices Boolean
+  manageEvents  Boolean
+  users         User[]
+}
+
+model User{
+  id            Int         @id @default(autoincrement())
+  UID           String      @unique
+  password      String
+  email         String      @unique
+  permition     Permition   @relation(fields:[permitionID], references: [id])
+  permitionID   Int
+  apiKey        String?
+}
