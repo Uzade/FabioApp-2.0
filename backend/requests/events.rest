@@ -1,0 +1,10 @@
+//gets all events
+GET http://localhost:8080/events/all HTTP/1.1
+
+###
+
+//gets all deviceGroups asociated with a single event
+// url param (eventId) required
+GET http://localhost:8080/events/devices?eventId=1 HTTP/1.1
+
+###

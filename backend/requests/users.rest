@@ -1,1 +1,30 @@
+//gets all the users name, email and permitionID
 GET http://localhost:8080/users/all HTTP/1.1
+
+###
+
+//gets same data but only of one unique user
+// url param (userId) required
+GET http://localhost:8080/users/unique?userId=1 HTTP/1.1
+
+###
+
+//compares login data passed in req body with database
+//return status 200 and generated api-key if sucessfull
+//return status 401 if failed
+POST http://localhost:8080/users/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "UID": "KarlHeinz",
+    "password": "password"
+}
+
+###
+
+//deletes api-key from database
+// url param (UID) required
+PATCH http://localhost:8080/users/logout?UID=KarlHeinz HTTP/1.1
+
+###
+
