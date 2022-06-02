@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = "file:./../db/main.sqlite"
 }
 
 model Permition{
@@ -24,9 +24,118 @@ model Permition{
 model User{
   id            Int         @id @default(autoincrement())
   UID           String      @unique
+  devices       devices[]
   password      String
   email         String      @unique
   permition     Permition   @relation(fields:[permitionID], references: [id])
   permitionID   Int
   apiKey        String?
+}
+
+model deviceTest{
+id            Int         @id @default(autoincrement()) 
+devices       devices     @relation(fields:[deviceID], references: [id])
+deviceID      Int         @unique
+date          DateTime
+category1     Boolean
+category2     Boolean
+
+}
+
+model Customer{
+id            Int         @id @default(autoincrement()) 
+event         event[]
+name          String
+company       String? 
+streetNum     String 
+city          String
+
+}
+
+model Location{
+  id            Int         @id @default(autoincrement())
+  isEvent       Boolean
+  isStorage     Boolean
+  name          String
+  street        String
+  number        Int
+  devicegroup   deviceGroup? 
+  city          String
+  event         event? 
+  details       String?
+}
+
+model category{
+  id            Int         @id @default(autoincrement()) 
+  devices       devices[]
+  name          String
+}
+
+model subcategory{
+  id            Int         @id @default(autoincrement())
+  name          String
+  devices       devices[]
+}
+
+model primitiveDevice{
+  id            Int         @id @default(autoincrement())
+  name          String  
+  deviceGroup   deviceGroup @relation(fields:[groupID], references: [id])
+  groupID       Int         @unique
+  codeExists    Boolean
+}
+
+model devices{
+  deviceTest    deviceTest[]
+  id            Int         @id @default(autoincrement())
+  name          String  
+  company       String  
+  category      category    @relation(fields:[categoryID], references: [id])
+  categoryID    Int         @unique
+  subcategory   subcategory @relation(fields:[subcategoryID], references: [id])
+  subcategoryID Int         @unique
+  Creator       User        @relation(fields:[creatorID], references: [id])
+  creatorID     Int         @unique
+  price         Int
+  codeExists    Boolean 
+  deviceGroup   deviceGroup @relation(fields:[groupID], references: [id])
+  groupID       Int         @unique
+}
+
+model event{
+  id            Int         @id @default(autoincrement())
+  creatorID     Int         @unique
+  customer      Customer    @relation(fields:[customerID], references: [id])
+  customerID    Int         @unique
+  eventDevices  eventDevices? 
+  location      Location    @relation(fields:[locationID], references: [id])
+  locationID    Int         @unique
+  dateTime      DateTime
+  offer         offer       @relation(fields:[offerID], references: [id])
+  offerID       Int         @unique
+  }
+
+  model deviceGroup{
+    id            Int         @id @default(autoincrement())
+    devices       devices[] 
+    primitiveDevice primitiveDevice[]
+    name          String
+    location      Location    @relation(fields:[locationID], references: [id])
+    locationID    Int         @unique
+    eventDevices  eventDevices?     
+  }
+
+  model offer{
+id            Int         @id @default(autoincrement())
+event         event?       
+price         Int
+  }
+
+model eventDevices{
+  id            Int         @id @default(autoincrement())
+  deviceGroup   deviceGroup @relation(fields:[deviceID], references: [id])
+  event         event       @relation(fields:[eventID], references: [id])
+  eventID       Int         @unique
+  deviceID      Int         @unique  
+  isThere       Boolean 
 }
