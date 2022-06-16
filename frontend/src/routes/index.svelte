@@ -36,16 +36,14 @@
         padding: 0.2em;
         font-size: 2em;
         position: relative;
-        box-shadow: 0px;
-        text-shadow: 0px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
         top: 0;
         left: 0;
-        transition: top ease 0.5s, left ease 0.5s, box-shadow ease 0.5s, text-shadow ease 0.5s;
+        transition: top ease 0.5s, left ease 0.5s, box-shadow ease 0.5s;
     }
 
     .button:hover{
-        box-shadow: 0px 0px 10px rgb(233, 65, 157);
-        text-shadow: 0px 0px 3px;
+        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.7);
         top: -3px;
         left: -3px;
     }
