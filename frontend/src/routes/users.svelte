@@ -12,6 +12,13 @@
     })
 </script>
 
-{#each users as user}
-    <User UID={user.UID} email={user.email}/>
-{/each}
+<div id="userContainer">
+    {#each users as user}
+        <User UID={user.UID} email={user.email}/>
+    {/each}
+</div>
+
+<style>
+    
+</style>
+

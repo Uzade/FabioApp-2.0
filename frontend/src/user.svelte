@@ -16,10 +16,9 @@
 
 <style>
     #wrapper{
-        margin: .5em;
+        margin: .5em auto;
         padding: .5em;
         background-color: rgb(27, 31, 37);
-        display: inline-block;
         width: 30em;
         box-shadow: 5px 5px 20px rgb(10, 10, 10);
     }
