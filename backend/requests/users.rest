@@ -5,7 +5,7 @@ GET http://localhost:8080/users/all HTTP/1.1
 
 //gets same data but only of one unique user
 // url param (userId) required
-GET http://localhost:8080/users/unique?userId=1 HTTP/1.1
+GET http://localhost:8080/users/unique?userId=7 HTTP/1.1
 
 ###
 
