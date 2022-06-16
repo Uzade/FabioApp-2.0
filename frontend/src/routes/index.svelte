@@ -17,8 +17,43 @@
 
 <style>
 
+    :root {
+        --white:rgba(255, 255, 255, 0.4);
+        --green: rgba(0, 255, 220, 0.6);
+        --light-green: rgba(0, 255, 220, 0.4);
+        --pink: rgba(255, 0, 180, 0.8);
+        --light-pink: rgba(255, 0, 180, 0.6);
+    }
+
     h1{
-        font-size: 3em;
+        position: relative;
+        font-size: 4.2em;
+        margin-bottom: 2em;
+        color: #fff;
+        text-shadow:
+            0 0 5px var(--white),
+            0 0 8px var(--white),
+            0 0 18px var(--white),
+            0 0 42px var(--pink),
+            0 0 82px var(--pink),
+            0 0 92px var(--pink),
+            0 0 102px var(--pink),
+            0 0 151px var(--light-pink);
+
+    }
+
+    h1::after{
+        content: " ";
+        background-color: var(--pink);
+        position: absolute;
+        width: 80%;
+        height: .8em;
+        left: 10%;
+        top: 150%;
+        transform: perspective(1.2em) rotateX(20deg);
+        filter: blur(.5em);
+        opacity: 50%;
+        
     }
 
     #content {
@@ -26,27 +61,37 @@
         padding: 1em;
         background-color: rgb(27, 31, 37);
         display: inline-block;
-        width: 30em;
+        width: 30rem;
         box-shadow: 5px 5px 20px rgb(10, 10, 10);
     }
 
     .button {
-        background-color: rgb(235, 33, 144);
         margin: 1em 2em;
         padding: 0.2em;
         font-size: 2em;
-        position: relative;
-        box-shadow: 0px;
-        text-shadow: 0px;
-        top: 0;
-        left: 0;
-        transition: top ease 0.5s, left ease 0.5s, box-shadow ease 0.5s, text-shadow ease 0.5s;
+        border: .1em solid #fff;
+        border-radius: .3em;
+        box-shadow:
+            inset 0px 0px 3px var(--white),
+            0px 0px 3px var(--white),
+            inset 0px 0px 7px var(--white),
+            0px 0px 7px var(--white),
+            inset 0px 0px 11px var(--green),
+            0px 0px 11px var(--green),
+            inset 0px 0px 25px var(--green),
+            0px 0px 25px var(--green),
+            inset 0px 0px 100px var(--light-green),
+            0px 0px 100px var(--light-green);
+        text-shadow:
+            0 0 5px var(--white),
+            0 0 8px var(--white),
+            0 0 18px var(--white),
+            0 0 42px var(--green),
+            0 0 82px var(--green),
+            0 0 92px var(--green),
+            0 0 102px var(--green),
+            0 0 151px var(--light-green);
+
     }
 
-    .button:hover{
-        box-shadow: 0px 0px 10px rgb(233, 65, 157);
-        text-shadow: 0px 0px 3px;
-        top: -3px;
-        left: -3px;
-    }
 </style>
