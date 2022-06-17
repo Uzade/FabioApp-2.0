@@ -17,7 +17,7 @@ Content-Type: application/json
 
 {
     "UID": "KarlHeinz",
-    "password": "password"
+    "password": "Wurscht"
 }
 
 ###

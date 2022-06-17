@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import { PrismaClient } from '@prisma/client'
 
-import users from './users'
+import users from './users/index'
 
 
 const app = express()
