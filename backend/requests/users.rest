@@ -24,7 +24,7 @@ Content-Type: application/json
 
 //deletes api-key from database
 // url param (UID) required
-PATCH http://localhost:8080/users/logout?UID=KarlHeinz HTTP/1.1
+PATCH http://localhost:8080/users/logout?UID=Röser HTTP/1.1
 
 ###
 

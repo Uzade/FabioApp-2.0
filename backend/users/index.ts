@@ -6,6 +6,7 @@ import { PrismaClient } from "@prisma/client";
 import getAll from './functions/getAll'
 import getUnique from "./functions/getUnique";
 import checkLogin from "./functions/checkLogin";
+import logout from "./functions/logout";
 
 function users(app: Express, prisma: PrismaClient){
 
@@ -20,5 +21,9 @@ function users(app: Express, prisma: PrismaClient){
     app.post('/users/login', (req, res) =>{
         checkLogin(req, res, prisma)
     }) 
+
+    app.patch('/users/logout', (req, res) =>{
+        logout(req, res, prisma)
+    })
 }
 export default users
