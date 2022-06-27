@@ -1,0 +1,14 @@
+
+// create new device
+POST http://localhost:8080/device/new HTTP/1.1
+
+{
+    "name": "Automat",
+    "company": "Werner Cooperations",
+    "categoryID": 1,
+    "subcategoryID": 1,
+    "creatorID": 1,
+    "price": 1588,
+    "codeExists": true,
+    "groupID",
+}
