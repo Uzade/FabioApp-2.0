@@ -5,19 +5,20 @@
             <p>Users</p>
         </div>
     </a>
-
-    <div class="button">
-        <p>Events</p>
-    </div>
-
-    <div class="button">
-        <p>Devices</p>
-    </div>
+    <a href="/events">
+        <div class="button">
+            <p>Events</p>
+        </div>
+    </a>
+    <a href="/devices">
+        <div class="button">
+            <p>Devices</p>
+        </div>
+    </a>
 </div>
 
 <style>
-
-    h1{
+    h1 {
         font-size: 3em;
     }
 
@@ -42,7 +43,7 @@
         transition: top ease 0.5s, left ease 0.5s, box-shadow ease 0.5s;
     }
 
-    .button:hover{
+    .button:hover {
         box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.7);
         top: -3px;
         left: -3px;
