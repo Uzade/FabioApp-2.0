@@ -1,5 +1,5 @@
 <div id="content">
-    <h1>Fabio-App</h1>
+    <h1>EventCat</h1>
     <a href="/users">
         <div class="button">
             <p>Users</p>
