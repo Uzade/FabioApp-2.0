@@ -12,6 +12,7 @@ datasource db {
 
 model Permition{
   id            Int         @id @default(autoincrement())
+  name          String      @unique @default("unnamed-permition")
   seeOwnOffers  Boolean
   requestOffers Boolean
   scanDevices   Boolean
@@ -24,7 +25,7 @@ model Permition{
 model User{
   id            Int         @id @default(autoincrement())
   UID           String      @unique
-  devices       devices[]
+  devices       Devices[]
   password      String
   email         String      @unique
   permition     Permition   @relation(fields:[permitionID], references: [id])
@@ -32,10 +33,10 @@ model User{
   apiKey        String?
 }
 
-model deviceTest{
+model DeviceTest{
 id            Int         @id @default(autoincrement()) 
-devices       devices     @relation(fields:[deviceID], references: [id])
-deviceID      Int         @unique
+devices       Devices     @relation(fields:[deviceID], references: [id])
+deviceID      Int         
 date          DateTime
 category1     Boolean
 category2     Boolean
@@ -44,7 +45,7 @@ category2     Boolean
 
 model Customer{
 id            Int         @id @default(autoincrement()) 
-event         event[]
+event         Event[]
 name          String
 company       String? 
 streetNum     String 
@@ -57,85 +58,76 @@ model Location{
   isEvent       Boolean
   isStorage     Boolean
   name          String
-  street        String
-  number        Int
-  devicegroup   deviceGroup? 
-  city          String
-  event         event? 
+  adress        String      @unique
+  devicegroup   DeviceGroup[] 
+  event         Event[] 
   details       String?
 }
 
-model category{
+model Category{
   id            Int         @id @default(autoincrement()) 
-  devices       devices[]
+  devices       Devices[]
   name          String
 }
 
-model subcategory{
+model Subcategory{
   id            Int         @id @default(autoincrement())
   name          String
-  devices       devices[]
+  devices       Devices[]
 }
 
-model primitiveDevice{
+model PrimitiveDevice{
   id            Int         @id @default(autoincrement())
   name          String  
-  deviceGroup   deviceGroup @relation(fields:[groupID], references: [id])
-  groupID       Int         @unique
+  deviceGroup   DeviceGroup? @relation(fields:[groupID], references: [id])
+  groupID       Int?         
   codeExists    Boolean
 }
 
-model devices{
-  deviceTest    deviceTest[]
+model Devices{
+  deviceTest    DeviceTest[]
   id            Int         @id @default(autoincrement())
   name          String  
   company       String  
-  category      category    @relation(fields:[categoryID], references: [id])
-  categoryID    Int         @unique
-  subcategory   subcategory @relation(fields:[subcategoryID], references: [id])
-  subcategoryID Int         @unique
+  category      Category    @relation(fields:[categoryID], references: [id])
+  categoryID    Int         
+  subcategory   Subcategory @relation(fields:[subcategoryID], references: [id])
+  subcategoryID Int         
   Creator       User        @relation(fields:[creatorID], references: [id])
-  creatorID     Int         @unique
+  creatorID     Int         
   price         Int
   codeExists    Boolean 
-  deviceGroup   deviceGroup @relation(fields:[groupID], references: [id])
-  groupID       Int         @unique
+  deviceGroup   DeviceGroup? @relation(fields:[groupID], references: [id])
+  groupID       Int?         
 }
 
-model event{
+model Event{
   id            Int         @id @default(autoincrement())
-  creatorID     Int         @unique
+  creatorID     Int         
   customer      Customer    @relation(fields:[customerID], references: [id])
-  customerID    Int         @unique
-  eventDevices  eventDevices? 
+  customerID    Int         
+  devices       DeviceGroup[]
   location      Location    @relation(fields:[locationID], references: [id])
-  locationID    Int         @unique
-  dateTime      DateTime
-  offer         offer       @relation(fields:[offerID], references: [id])
-  offerID       Int         @unique
+  locationID    Int         
+  startDate     DateTime
+  endDate       DateTime
+  offer         Offer?       @relation(fields:[offerID], references: [id])
+  offerID       Int?         @unique
   }
 
-  model deviceGroup{
+  model DeviceGroup{
     id            Int         @id @default(autoincrement())
-    devices       devices[] 
-    primitiveDevice primitiveDevice[]
+    devices       Devices[] 
+    primitiveDevice PrimitiveDevice[]
     name          String
     location      Location    @relation(fields:[locationID], references: [id])
-    locationID    Int         @unique
-    eventDevices  eventDevices?     
+    locationID    Int         
+    events        Event[]     
   }
 
-  model offer{
-id            Int         @id @default(autoincrement())
-event         event?       
-price         Int
+  model Offer{
+    id            Int         @id @default(autoincrement())
+    event         Event?       
+    price         Int
   }
 
-model eventDevices{
-  id            Int         @id @default(autoincrement())
-  deviceGroup   deviceGroup @relation(fields:[deviceID], references: [id])
-  event         event       @relation(fields:[eventID], references: [id])
-  eventID       Int         @unique
-  deviceID      Int         @unique  
-  isThere       Boolean 
-}
