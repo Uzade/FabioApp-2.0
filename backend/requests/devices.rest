@@ -1,6 +1,7 @@
 
 // create new device
 POST http://localhost:8080/device/new HTTP/1.1
+Content-Type: application/json
 
 {
     "name": "Automat",
@@ -9,6 +10,65 @@ POST http://localhost:8080/device/new HTTP/1.1
     "subcategoryID": 1,
     "creatorID": 1,
     "price": 1588,
-    "codeExists": true,
-    "groupID",
+    "codeExists": true
 }
+
+###
+
+//creates new PrimitiveDevices
+POST http://localhost:8080/device/newPrimitive HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Gerät",
+    "codeExists": true      //codeExists: QR-Code
+}
+
+###
+
+//gets all the information from the primitive Device
+GET http://localhost:8080/device/allPrimitives HTTP/1.1
+
+###
+
+//gets all the information from the device
+GET http://localhost:8080/device/all HTTP/1.1
+
+###
+
+
+
+// creates new groups
+POST http://localhost:8080/device/groups/new HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "andere Gruppe",
+    "locationID": 1
+}
+
+###
+
+//add Device to Device to group
+PATCH http://localhost:8080/device/groups/addDevice HTTP/1.1
+Content-Type: application/json
+
+{
+    "groupID": 1,    //which group
+    "deviceID": 3   // device in for group
+}
+
+###
+
+// add primitiveDevice to group
+PATCH http://localhost:8080/device/groups/addPrimitive HTTP/1.1
+Content-Type: application/json
+
+{
+    "groupID": 1,
+    "primitiveID": 1
+}
+
+###
+
+GET http://localhost:8080/device/groups/all HTTP/1.1

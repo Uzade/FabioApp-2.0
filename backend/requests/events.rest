@@ -5,6 +5,31 @@ GET http://localhost:8080/events/all HTTP/1.1
 
 //gets all deviceGroups asociated with a single event
 // url param (eventId) required
-GET http://localhost:8080/events/devices?eventId=1 HTTP/1.1
+GET http://localhost:8080/events/unique?eventID=1 HTTP/1.1
 
 ###
+// creates new Events
+POST http://localhost:8080/events/new HTTP/1.1
+Content-Type: application/json
+
+{
+    "creatorID": 1,
+    "customerID": 0,
+    "customerName": "Harald Günter",
+    "customerStreetNum": "Bergstraße 5",
+    "customerCity": "Tann",
+    "adress": "Am Joßberg 11, 36142 Tann",
+    "startDate": "1995-12-17T03:24:00",
+    "endDate": "1995-12-19T03:24:00"
+}
+
+###
+
+// adding Devices to Events
+PATCH http://localhost:8080/events/addDevice HTTP/1.1
+Content-Type: application/json
+
+{
+    "eventID": 1,
+    "deviceGroupID": 2
+}
