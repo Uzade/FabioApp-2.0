@@ -21,6 +21,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"html5-qrcode": "^2.2.1",
 		"svelte-qrcode": "^1.0.0"
 	}
 }
