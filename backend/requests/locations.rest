@@ -1,0 +1,10 @@
+
+POST http://localhost:8080/location/new HTTP/1.1
+Content-Type: application/json
+
+{
+    "isStorage": true,
+    "name": "Klausis Hausi",
+    "adress": "Irgendeine Str. 69, Hünfeld",
+    "details": "Don't wake up the beast"
+}

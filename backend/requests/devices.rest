@@ -43,8 +43,8 @@ POST http://localhost:8080/device/groups/new HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "andere Gruppe",
-    "locationID": 1
+    "name": "Klausis Hausi",
+    "locationID": 2
 }
 
 ###
