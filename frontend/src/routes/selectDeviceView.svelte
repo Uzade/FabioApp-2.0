@@ -1,30 +1,18 @@
-
-
-<div id="content">
-    <h1>EventCat</h1>
-    <a href="/users">
+<div class="container">
+    <a href="/allDevices">
         <div class="button">
-            <p>Users</p>
+            <p>All Devices</p>
         </div>
     </a>
-    <a href="/events">
+    <a href="/deviceGroups">
         <div class="button">
-            <p>Events</p>
-        </div>
-    </a>
-    <a href="/selectDeviceView">
-        <div class="button">
-            <p>Devices</p>
+            <p>Sorted by groups</p>
         </div>
     </a>
 </div>
 
 <style>
-    h1 {
-        font-size: 3em;
-    }
-
-    #content {
+    .container {
         margin: 3em;
         padding: 1em;
         background-color: rgb(27, 31, 37);
