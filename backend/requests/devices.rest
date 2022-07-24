@@ -43,7 +43,7 @@ POST http://localhost:8080/device/groups/new HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Klausis Hausi",
+    "name": "Light the Klaus",
     "locationID": 2
 }
 
@@ -72,3 +72,9 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8080/device/groups/all HTTP/1.1
+
+
+###
+
+
+GET http://localhost:8080/device/groups/unique?groupID=1 HTTP/1.1

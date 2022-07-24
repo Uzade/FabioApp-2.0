@@ -1,13 +1,15 @@
 import { Express } from "express-serve-static-core";
 import { PrismaClient } from "@prisma/client";
+
 import newDevice from "./functions/newDevice";
 import getAll from "./functions/getAll";
 import newPrimitive from "./functions/newPrimitive";
-import getAllPrimitives from "./getAllPrimitives";
+import getAllPrimitives from "./functions/getAllPrimitives";
 import newGroup from "./functions/groups/newGroup";
 import getAllGroups from "./functions/groups/getAllGroups";
 import addDevice from "./functions/groups/addDevice";
 import addPrimitive from "./functions/groups/addPrimitive";
+import getUniqueGroup from "./functions/groups/getUniqueGroup";
 
 function devices(app: Express, db: PrismaClient) {
     app.post('/device/new', (req, res) =>{
@@ -25,6 +27,10 @@ function devices(app: Express, db: PrismaClient) {
 
     app.get('/device/allPrimitives', (req, res) =>{
         getAllPrimitives(req, res, db)
+    })
+
+    app.get('/device/groups/unique', (req, res) =>{
+        getUniqueGroup(req, res, db)
     })
 
     app.post('/device/groups/new', (req, res) =>{
