@@ -12,7 +12,13 @@ const getAll = async (req:Request, res: Response, prisma: PrismaClient) => {
             Creator  :true,           
             price  :true,   
             codeExists :true,   
-            deviceGroup :true   
+            deviceGroup : {
+                select: {
+                    id: true,
+                    location: true,
+                    
+                }
+            }  
         }
     })
 
