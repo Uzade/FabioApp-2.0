@@ -13,6 +13,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
+		"@types/bwip-js": "^3.0.0",
 		"svelte": "^3.44.0",
 		"svelte-check": "^2.2.6",
 		"svelte-preprocess": "^4.10.1",
@@ -21,6 +22,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"bwip-js": "^3.1.0",
 		"html5-qrcode": "^2.2.1",
 		"svelte-qrcode": "^1.0.0"
 	}
