@@ -1,6 +1,6 @@
 <script lang="ts">
     import DeviceGroup from "./../deviceGroup.svelte";
-    import Lable from "../devicelable.svelte";
+    import Store from './../store.svelte'
     import { onMount } from "svelte";
 
     let devicesJSON:any = {data: []}
@@ -11,9 +11,11 @@
     })
 </script>
 
+<div id="store"><Store /></div>
 <div class="container">
     {#each devicesJSON.data as deviceGroup}
         <DeviceGroup
+            id={deviceGroup.id}
             groupName={deviceGroup.name}
             isStored={deviceGroup.location.isStorage}
             location={deviceGroup.location.name}
@@ -21,12 +23,15 @@
         />
     {/each}
 
-    {`
-    <Lable iid={5} name="Gerät" category="TestCategory" subcategory="TestSubCat"/>
-    `}
 </div>
 
 
 <style>
-    
+    #store{
+        width: 20%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        margin: 0%
+    }
 </style>
