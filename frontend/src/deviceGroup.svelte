@@ -1,13 +1,28 @@
 <script lang="ts">
     import Device from "./device.svelte";
+    import { lableStore } from './stores'
+    import type { Device as tDevice } from './types'
+    import { browser } from '$app/env'
 
-    export let groupName:String
-    export let isStored:Boolean
-    export let location:String
-    export let devices:any
+    export let id:number
+    export let groupName:string
+    export let isStored:boolean
+    export let location:string
+    export let devices:tDevice[]
+
+    const addToStore = () => {
+        //$lableStore = $lableStore.concat({id, groupName, devices})
+        $lableStore = [...$lableStore, {id, groupName, devices}]
+        console.log(($lableStore))
+        localStorage.setItem('lableStore', JSON.stringify($lableStore))
+        
+    }
+
 </script>
 
+
 <div class="container">
+    id: {id}
     <h1>{groupName}</h1>
     {#if isStored}
         <h2>stored at "{location}"</h2>
@@ -27,6 +42,7 @@
     <button>add to event</button>
     <button>add device</button>
     <button>delete</button>
+    <button on:click={addToStore}>add to lableStore</button>
     
 </div>
 
