@@ -7,7 +7,7 @@
 
     onMount(() => {
     try {
-        let canvas = bwipjs.toCanvas('canvas', {
+        let canvas = bwipjs.toCanvas(`canvas${id}`, {
             bcid:        'pdf417',        // Barcode type
             text:        '' + id,             // Text to encode
             scale:       2,               // 3x scaling factor
@@ -21,7 +21,7 @@
 </script>
 
 <div>
-    <canvas id='canvas'></canvas>
+    <canvas id='canvas{id}'></canvas>
 </div>
 
 <style>
