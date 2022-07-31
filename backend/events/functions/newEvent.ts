@@ -34,7 +34,8 @@ const newEvent = async (req: Request, res: Response, db: PrismaClient) =>{
                 }
             },
             startDate: startDate,
-            endDate: endDate
+            endDate: endDate,
+            name: req.body.name
         },
         include:{
             customer: true,

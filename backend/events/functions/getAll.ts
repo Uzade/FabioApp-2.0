@@ -6,6 +6,8 @@ const getAll = async (req:Request, res: Response, prisma: PrismaClient) => {
         select: {
             id            :true,
             creatorID     :true,
+            customer      :true,
+            name          :true,
             devices       :true,
             startDate     :true,
             endDate       :true,
