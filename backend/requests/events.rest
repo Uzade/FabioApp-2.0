@@ -18,9 +18,10 @@ Content-Type: application/json
     "customerName": "Harald Günter",
     "customerStreetNum": "Bergstraße 5",
     "customerCity": "Tann",
+    "name": "TestEvent",
     "adress": "Am Joßberg 11, 36142 Tann",
-    "startDate": "1995-12-17T03:24:00",
-    "endDate": "1995-12-19T03:24:00"
+    "startDate": "2022-07-31T09:24:00",
+    "endDate": "2022-08-01T12:00:00"
 }
 
 ###
