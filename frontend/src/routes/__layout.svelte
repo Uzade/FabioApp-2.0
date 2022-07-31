@@ -1,6 +1,7 @@
 
 <script>
     import { goto } from '$app/navigation'
+
     const back = () => {
         goto('/', {replaceState: true})
     }
@@ -11,6 +12,8 @@
         <h1>&lt; back</h1>
     </div>
 </button>
+
+
 <slot>
     <h1>Error</h1>
     <p>This page could not be renderd</p>
@@ -31,4 +34,6 @@
         text-decoration: none;
         color: inherit;
     }
+
+
 </style>
