@@ -103,6 +103,7 @@ model Devices{
 
 model Event{
   id            Int         @id @default(autoincrement())
+  name          String?
   creatorID     Int         
   customer      Customer    @relation(fields:[customerID], references: [id])
   customerID    Int         
